@@ -13,6 +13,14 @@ export interface Asignatura {
     nombre: string;
     creditos: number;
 }
+
+
+export type EstadoMatricula = MatriculaActiva 
+| MatriculaSuspendida 
+| MatriculaFinalizada;
+
+
+
 //Union Discriminada: EstadoMatricula
 export interface MatriculaActiva {
     tipo: "activa";
@@ -28,10 +36,12 @@ export interface MatriculaFinalizada {
     notaMedia: number;
 }
 
-export type EstadoMatricula = 
-|MatriculaActiva 
-| MatriculaSuspendida 
-| MatriculaFinalizada;
+export interface matriculaConBeca {
+    tipo: "conBeca";
+    importe: number;
+}
+
+
 
 //Interfaz generica para respuestas
 export interface RespuestaAPI<T> {

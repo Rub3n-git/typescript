@@ -14,7 +14,11 @@ function generarReporte (estado: EstadoMatricula): string {
         case "suspendida":
             return `Matricula Suspendida- Motivos: ${estado.motivos}`;
         case "finalizada":
-            return `Matricula Finalizada- Nota Media: ${estado.notaMedia}`;
+            return `Matricula Finalizada- Nota: ${estado.notaMedia}`;
+        default:
+            const _exhaustivo: never = estado;
+            throw new Error(`Estado no manejado: ${_exhaustivo}`);
+        
     }
 }
 
@@ -73,3 +77,4 @@ estados.forEach(estado => {
 }
 
 main();
+
